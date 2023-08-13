@@ -10,6 +10,8 @@ pub struct PdConfig {
     pub len: u8,
     pub preflft: u32,
     pub validlft: u32,
+    pub dns1: Ipv6Addr,
+    pub dns2: Ipv6Addr,
     pub aftr: Option<String>,
 }
 
@@ -20,6 +22,8 @@ impl Default for PdConfig {
             len: 0,
             preflft: 0,
             validlft: 0,
+            dns1: Ipv6Addr::UNSPECIFIED,
+            dns2: Ipv6Addr::UNSPECIFIED,
             aftr: None,
         }
     }

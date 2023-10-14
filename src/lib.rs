@@ -8,6 +8,8 @@ pub const LOCATION: &str = "/data/dhcp6.lease";
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct PdConfig {
     pub timestamp: SystemTime,
+    pub t1: u32,
+    pub t2: u32,
     pub prefix: Ipv6Addr,
     pub len: u8,
     pub preflft: u32,
@@ -21,6 +23,8 @@ impl Default for PdConfig {
     fn default() -> Self {
         Self {
             timestamp: SystemTime::UNIX_EPOCH,
+            t1: 0,
+            t2: 0,
             prefix: Ipv6Addr::UNSPECIFIED,
             len: 0,
             preflft: 0,

@@ -1,4 +1,4 @@
-use std::net::Ipv6Addr;
+use std::net::{IpAddr, Ipv6Addr, SocketAddr};
 use std::time::SystemTime;
 
 use serde::{Deserialize, Serialize};
@@ -8,7 +8,7 @@ pub const LOCATION: &str = "/data/dhcp6.lease";
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct PdConfig {
     pub timestamp: SystemTime,
-    pub server: Ipv6Addr,
+    pub server: SocketAddr,
     pub server_id: Vec<u8>,
     pub t1: u32,
     pub t2: u32,
@@ -25,7 +25,7 @@ impl Default for PdConfig {
     fn default() -> Self {
         Self {
             timestamp: SystemTime::UNIX_EPOCH,
-            server: Ipv6Addr::UNSPECIFIED,
+            server: SocketAddr::new(IpAddr::V6(Ipv6Addr::UNSPECIFIED), 0),
             server_id: Vec::default(),
             t1: 0,
             t2: 0,

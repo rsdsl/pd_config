@@ -2,7 +2,7 @@ use std::net::Ipv6Addr;
 
 use serde::{Deserialize, Serialize};
 
-pub const LOCATION: &str = "/tmp/dhcp6.lease";
+pub const LOCATION: &str = "/data/dhcp6.lease";
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PdConfig {

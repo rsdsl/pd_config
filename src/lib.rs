@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 pub const LOCATION: &str = "/data/dhcp6.lease";
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct PdConfig {
     pub timestamp: SystemTime,
     pub prefix: Ipv6Addr,
